@@ -1,0 +1,28 @@
+{
+  "name": "gulp",
+  "version": "1.0.0",
+  "description": "gulp testing with different packages",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp-imagemin": "^3.3.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aurelienroux/Gulp.git"
+  },
+  "keywords": [
+    "gulp",
+    "task",
+    "runner"
+  ],
+  "author": "Aurelien Roux",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aurelienroux/Gulp/issues"
+  },
+  "homepage": "https://github.com/aurelienroux/Gulp#readme"
+}
