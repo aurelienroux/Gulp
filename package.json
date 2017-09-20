@@ -6,6 +6,7 @@
   "dependencies": {},
   "devDependencies": {
     "gulp": "^3.9.1",
+    "gulp-changed": "^3.1.0",
     "gulp-imagemin": "^3.3.0"
   },
   "scripts": {
