@@ -1,3 +1,5 @@
 /node_modules
 /Build/images/*
 !/Build/images/.keep
+/Build/styles/*
+!/Build/styles/.keep
