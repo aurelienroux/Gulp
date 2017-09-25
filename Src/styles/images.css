@@ -1,4 +1,5 @@
 img {
   border: 2px dashed gold;
-  background-color: green;
+  background-color: red;
+  margin: 20px;
 }
