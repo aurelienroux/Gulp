@@ -1,22 +1,30 @@
 //Dependencies required
 var gulp = require('gulp');
 //IMAGES
-var imagemin = require('gulp-imagemin');
 var changed = require('gulp-changed');
-//CSS
-var concat = require('gulp-concat');
+var imagemin = require('gulp-imagemin');
+//CSS & JS
 var autoprefix = require('gulp-autoprefixer');
+var concat = require('gulp-concat');
 var minifyCSS = require('gulp-minify-css');
+var sourceMap = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
 //LIVERELOAD
 var browserSync = require('browser-sync').create();
 
 
 //javascript optimization
+var jsSource = [
+  'src/scripts/log.js',
+  'src/scripts/alert.js'
+];
+
 gulp.task('scripts', function(){
-  gulp.src(['src/scripts/*.js'])
-  .pipe(concat('app.js'))
-  .pipe(uglify())
+  gulp.src(jsSource)
+  .pipe(sourceMap.init())
+    .pipe(concat('app.js'))
+    .pipe(uglify())
+  .pipe(sourceMap.write())
   .pipe(gulp.dest('build/scripts/'))
   .pipe(browserSync.reload({
     stream: true
