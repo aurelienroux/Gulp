@@ -12,6 +12,8 @@ var minifyCSS = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sourceMap = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
+// Sass
+var sass = require('gulp-sass');
 //MISC
 var browserSync = require('browser-sync').create();
 var plumber = require('gulp-plumber');
@@ -68,6 +70,17 @@ gulp.task('stylesCSS', function() {
   }))
 })
 
+// compile Sass files
+gulp.task('sass', function(){
+  gulp.src('src/stylesSass/app.scss')
+  .pipe(sass())
+  .pipe(gulp.dest('build/stylesSass/'))
+  //browserSync reload application
+  .pipe(browserSync.reload({
+    stream: true
+  }))
+})
+
 //browserSync reload for CSS changes
 gulp.task('browserSync', function() {
   browserSync.init({
@@ -78,6 +91,9 @@ gulp.task('browserSync', function() {
 });
 
 // Gulp defaut tasks
-gulp.task('default', ['imagemin', 'browserSync', 'stylesCSS', 'scripts'], function(){
-  gulp.watch(['src/stylesCSS/*.css', 'src/scripts/*.js'], ['stylesCSS', 'scripts']);
+gulp.task('default', ['imagemin', 'browserSync', 'stylesCSS', 'scripts', 'sass'], function(){
+  gulp.watch(
+    ['src/stylesCSS/*.css', 'src/stylesSass/**/*.scss', 'src/scripts/*.js'],
+    ['stylesCSS', 'sass', 'scripts']
+  );
 });
