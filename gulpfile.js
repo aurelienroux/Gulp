@@ -17,7 +17,10 @@ gulp.task('scripts', function(){
   gulp.src(['src/scripts/*.js'])
   .pipe(concat('app.js'))
   .pipe(uglify())
-  .pipe(gulp.dest('build/scripts/'));
+  .pipe(gulp.dest('build/scripts/'))
+  .pipe(browserSync.reload({
+    stream: true
+  }))
 })
 
 //image minification -- only changes if necessary
