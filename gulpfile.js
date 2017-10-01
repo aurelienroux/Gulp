@@ -9,13 +9,14 @@ var imagemin = require('gulp-imagemin');
 var autoprefix = require('gulp-autoprefixer');
 var concat = require('gulp-concat');
 var minifyCSS = require('gulp-minify-css');
+var rename = require('gulp-rename');
 var sourceMap = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
 //MISC
 var browserSync = require('browser-sync').create();
 var plumber = require('gulp-plumber');
 
-//javascript optimization
+//javascript optimization, source maps included
 var jsSource = [
   'src/scripts/log.js',
   'src/scripts/alert.js'
@@ -23,14 +24,20 @@ var jsSource = [
 
 gulp.task('scripts', function(){
   gulp.src(jsSource)
-  .pipe(sourceMap.init())
+  // .pipe(sourceMap.init())
     .pipe(concat('app.js'))
-    .pipe(uglify())
-  .pipe(sourceMap.write())
+  // .pipe(sourceMap.write())
   .pipe(gulp.dest('build/scripts/'))
   .pipe(browserSync.reload({
     stream: true
   }))
+})
+
+gulp.task('minifyScripts', function(){
+  gulp.src('build/scripts/app.js')
+  .pipe(uglify())
+  .pipe(rename('app.min.js'))
+  .pipe(gulp.dest('build/scripts/'))
 })
 
 //image minification -- only changes if necessary
@@ -67,6 +74,6 @@ gulp.task('browserSync', function() {
 });
 
 // Gulp defaut tasks
-gulp.task('default', ['imagemin', 'browserSync', 'styles', 'scripts'], function(){
-  gulp.watch(['src/styles/*.css', 'src/scripts/*.js'], ['styles', 'scripts']);
+gulp.task('default', ['imagemin', 'browserSync', 'styles', 'scripts', 'minifyScripts'], function(){
+  gulp.watch(['src/styles/*.css', 'src/scripts/*.js', 'build/scripts/app.js'], ['styles', 'scripts', 'minifyScripts']);
 });
