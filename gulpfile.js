@@ -46,7 +46,7 @@ gulp.task('styles', function() {
   }))
 })
 
-//broswerSync reload for CSS changes
+//browserSync reload for CSS changes
 gulp.task('browserSync', function() {
   browserSync.init({
     server: {
