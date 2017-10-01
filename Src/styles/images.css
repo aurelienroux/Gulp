@@ -1,5 +1,10 @@
 img {
-  border: 2px dashed gold;
-  background-color: red;
-  margin: 20px;
+
+  width: 100%;
+  box-shadow: 0 5px 20px #000;
+}
+
+h1 {
+  color: green;
+  border: 2px dashed pink;
 }

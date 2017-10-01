@@ -1,5 +1,9 @@
 a {
-  color: tomato;
+  color: green;
   transition: 1s;
-  border: 1px solid blue;
+  border: 1px solid purple;
+}
+
+p {
+  line-height: 2rem;
 }

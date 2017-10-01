@@ -4,6 +4,7 @@ var changed = require('gulp-changed');
 var autoprefix = require('gulp-autoprefixer');
 var minifyCSS = require('gulp-minify-css');
 var concat = require('gulp-concat');
+var browserSync = require('browser-sync').create();
 
 gulp.task('imagemin', function(){
   var img_src = 'src/images/**/*';
@@ -19,11 +20,20 @@ gulp.task('styles', function() {
   .pipe(concat('styles.css'))
   .pipe(autoprefix('last 2 versions'))
   .pipe(minifyCSS())
-  .pipe(gulp.dest('build/styles'));
+  .pipe(gulp.dest('build/styles'))
+  .pipe(browserSync.reload({
+    stream: true
+  }))
 })
 
-gulp.task('default', ['imagemin', 'styles'], function(){
-  gulp.watch('src/styles/*.css', function() {
-    gulp.run('styles');
+gulp.task('browserSync', function() {
+  browserSync.init({
+    server: {
+      baseDir: 'build'
+    },
   })
+});
+
+gulp.task('default', ['imagemin', 'browserSync', 'styles'], function(){
+  gulp.watch('src/styles/*.css', ['styles']);
 });
