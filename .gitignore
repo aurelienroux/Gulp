@@ -3,3 +3,5 @@
 !/Build/images/.keep
 /Build/styles/*
 !/Build/styles/.keep
+/Build/scripts/*
+!/Build/scripts/.keep
