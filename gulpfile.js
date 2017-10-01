@@ -55,13 +55,13 @@ gulp.task('imagemin', function(){
 });
 
 // concat CSS styles, autoprefix and minification
-gulp.task('styles', function() {
-  gulp.src(['src/styles/*.css'])
+gulp.task('stylesCSS', function() {
+  gulp.src(['src/stylesCSS/*.css'])
   .pipe(plumber())
-  .pipe(concat('styles.css'))
+  .pipe(concat('stylesCSS.css'))
   .pipe(autoprefix('last 2 versions'))
   .pipe(minifyCSS())
-  .pipe(gulp.dest('build/styles'))
+  .pipe(gulp.dest('build/stylesCSS'))
   //browserSync reload application
   .pipe(browserSync.reload({
     stream: true
@@ -78,6 +78,6 @@ gulp.task('browserSync', function() {
 });
 
 // Gulp defaut tasks
-gulp.task('default', ['imagemin', 'browserSync', 'styles', 'scripts'], function(){
-  gulp.watch(['src/styles/*.css', 'src/scripts/*.js'], ['styles', 'scripts', 'minifyScripts']);
+gulp.task('default', ['imagemin', 'browserSync', 'stylesCSS', 'scripts'], function(){
+  gulp.watch(['src/stylesCSS/*.css', 'src/scripts/*.js'], ['stylesCSS', 'scripts']);
 });
