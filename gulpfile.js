@@ -9,9 +9,9 @@ var concat = require('gulp-concat');
 var minifyCSS = require('gulp-minify-css');
 var sourceMap = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
-//LIVERELOAD
+//MISC
 var browserSync = require('browser-sync').create();
-
+var plumber = require('gulp-plumber');
 
 //javascript optimization
 var jsSource = [
@@ -44,6 +44,7 @@ gulp.task('imagemin', function(){
 // concat CSS styles, autoprefix and minification
 gulp.task('styles', function() {
   gulp.src(['src/styles/*.css'])
+  .pipe(plumber())
   .pipe(concat('styles.css'))
   .pipe(autoprefix('last 2 versions'))
   .pipe(minifyCSS())
