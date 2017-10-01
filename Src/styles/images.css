@@ -4,8 +4,8 @@ img {
 }
 
 h1 {
-  color: green;
-  border: 2px solid tomato;
+  color: white;
+  border: 20px solid tomato;
   padding: 10px;
-  background-color: yellow;
+  background-color: blue;
 }
