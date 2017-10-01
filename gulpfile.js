@@ -73,8 +73,10 @@ gulp.task('stylesCSS', function() {
 // compile Sass files
 gulp.task('sass', function(){
   gulp.src('src/stylesSass/app.scss')
-  .pipe(plumber())
-  .pipe(sass())
+  .pipe(sourceMap.init())
+    .pipe(plumber())
+    .pipe(sass())
+  .pipe(sourceMap.write())
   .pipe(gulp.dest('build/stylesSass/'))
   //browserSync reload application
   .pipe(browserSync.reload({
