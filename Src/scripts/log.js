@@ -1,1 +1,2 @@
-console.log('testing another time');;
+console.log('testing second');
+var hello = 'hello there';

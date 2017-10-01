@@ -54,5 +54,5 @@ gulp.task('browserSync', function() {
 
 // Gulp defaut tasks
 gulp.task('default', ['imagemin', 'browserSync', 'styles', 'scripts'], function(){
-  gulp.watch('src/styles/*.css', ['styles']);
+  gulp.watch(['src/styles/*.css', 'src/scripts/*.js'], ['styles', 'scripts']);
 });
