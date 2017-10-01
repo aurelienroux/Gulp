@@ -78,6 +78,6 @@ gulp.task('browserSync', function() {
 });
 
 // Gulp defaut tasks
-gulp.task('default', ['imagemin', 'browserSync', 'styles', 'scripts', 'minifyScripts'], function(){
-  gulp.watch(['src/styles/*.css', 'src/scripts/*.js', 'build/scripts/app.js'], ['styles', 'scripts', 'minifyScripts']);
+gulp.task('default', ['imagemin', 'browserSync', 'styles', 'scripts'], function(){
+  gulp.watch(['src/styles/*.css', 'src/scripts/*.js'], ['styles', 'scripts', 'minifyScripts']);
 });
