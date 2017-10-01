@@ -73,6 +73,7 @@ gulp.task('stylesCSS', function() {
 // compile Sass files
 gulp.task('sass', function(){
   gulp.src('src/stylesSass/app.scss')
+  .pipe(plumber())
   .pipe(sass())
   .pipe(gulp.dest('build/stylesSass/'))
   //browserSync reload application
