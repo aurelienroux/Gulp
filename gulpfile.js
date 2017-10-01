@@ -24,21 +24,25 @@ var jsSource = [
 
 gulp.task('scripts', function(){
   gulp.src(jsSource)
-  // .pipe(sourceMap.init())
+  .pipe(sourceMap.init())
     .pipe(concat('app.js'))
-  // .pipe(sourceMap.write())
+    .pipe(uglify())
+  .pipe(sourceMap.write())
   .pipe(gulp.dest('build/scripts/'))
   .pipe(browserSync.reload({
     stream: true
   }))
 })
 
-gulp.task('minifyScripts', function(){
-  gulp.src('build/scripts/app.js')
-  .pipe(uglify())
-  .pipe(rename('app.min.js'))
-  .pipe(gulp.dest('build/scripts/'))
-})
+// test in case of minification and name changing
+// gulp.task('minifyScripts', function(){
+//   gulp.src('build/scripts/app.js')
+//   .pipe(sourceMap.init())
+//     .pipe(uglify())
+//     .pipe(rename('app.min.js'))
+//   .pipe(sourceMap.write())
+//   .pipe(gulp.dest('build/scripts/'))
+// })
 
 //image minification -- only changes if necessary
 gulp.task('imagemin', function(){
