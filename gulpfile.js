@@ -1,3 +1,5 @@
+'use strict';
+
 //Dependencies required
 var gulp = require('gulp');
 //IMAGES
