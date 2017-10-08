@@ -149,16 +149,49 @@ gulp.task('default', ['imagemin', 'scripts', 'stylesCSS', 'sass', 'browserSync']
 ## packages list
 [gulp-changed](https://www.npmjs.com/package/gulp-changed)
 ```
-npm install gulp-changed
+npm install gulp-changed --save-dev
 ```
-imagemin
-autoprefix
-concat
-minifyCSS
-rename
-sourceMap
-uglify
-Sass
-browserSync
-plumber
-del
+[imagemin](https://www.npmjs.com/package/gulp-imagemin)
+```
+npm install gulp-imagemin --save-dev
+```
+[autoprefix](https://www.npmjs.com/package/gulp-autoprefixer)
+```
+npm i gulp-autoprefixer --save-dev
+```
+[concat](https://www.npmjs.com/package/gulp-concat)
+```
+npm install gulp-concat --save-dev
+```
+DEPRECATED [minifyCSS](https://www.npmjs.com/package/gulp-minify-css)
+```
+npm install gulp-minify-css --save-dev
+```
+[rename](https://www.npmjs.com/package/gulp-rename)
+```
+npm install gulp-rename --save-dev
+```
+[sourceMap](https://www.npmjs.com/package/gulp-sourcemaps)
+```
+npm install gulp-sourcemaps --save-dev
+```
+[uglify](https://www.npmjs.com/package/gulp-uglify)
+```
+npm install gulp-uglify --save-dev
+```
+[Sass](https://www.npmjs.com/package/gulp-sass)
+```
+npm install gulp-sass --save-dev
+```
+[browserSync](https://www.npmjs.com/package/browser-sync)
+```
+npm install browser-sync --save-dev
+```
+[plumber](https://www.npmjs.com/package/gulp-plumber)
+```
+npm install gulp-plumber --save-dev
+```
+[del](https://www.npmjs.com/package/del)
+```
+npm install del --save-dev
+```
