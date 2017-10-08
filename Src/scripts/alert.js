@@ -4,4 +4,4 @@ title.addEventListener('click', function(){
   console.log('clicked');
 })
 
-console.log('line 9000 in alert.js');
+console.log('line 1000 in alert.js');

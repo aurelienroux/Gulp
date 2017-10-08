@@ -98,10 +98,16 @@ gulp.task('clean', function() {
   del(['dist/images/*', 'dist/scripts/*', 'dist/stylesCSS/*', 'dist/stylesSass/*']);
 })
 
+gulp.task('watchFiles', function() {
+  gulp.watch('src/stylesCSS/*.css', ['stylesCSS']);
+  gulp.watch('src/stylesSass/**/*.scss', ['sass']);
+  gulp.watch('src/scripts/*.js', ['scripts']);
+})
+
 // Gulp defaut tasks
 gulp.task('default', ['imagemin', 'scripts', 'stylesCSS', 'sass', 'browserSync'], function(){
-  gulp.watch(
-    ['src/stylesCSS/*.css', 'src/stylesSass/**/*.scss', 'src/scripts/*.js'],
-    ['stylesCSS', 'sass', 'scripts']
-  );
+  console.log("New action *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*")
+  gulp.watch('src/stylesCSS/*.css', ['stylesCSS']);
+  gulp.watch('src/stylesSass/**/*.scss', ['sass']);
+  gulp.watch('src/scripts/*.js', ['scripts']);
 });
