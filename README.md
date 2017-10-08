@@ -4,11 +4,11 @@
 basic gulp system to prepare production files from CSS, Sass and Javascript sources
 create package with ```$ npm init```
 
-## structure
+## Structure
 all development files are located in /src folder.
 Gulp regroups production files in /dist folder
 
-## tasks
+## Tasks
 a detail of every task
 
 ### scripts
@@ -146,7 +146,7 @@ gulp.task('default', ['imagemin', 'scripts', 'stylesCSS', 'sass', 'browserSync']
 });
 ```
 
-## packages list
+## Packages list
 [gulp-changed](https://www.npmjs.com/package/gulp-changed)
 ```
 npm install gulp-changed --save-dev
