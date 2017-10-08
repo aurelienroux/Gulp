@@ -1,13 +1,13 @@
 /node_modules
 
-/Build/images/*
-!/Build/images/.keep
+/dist/images/*
+!/dist/images/.keep
 
-/Build/stylesCSS/*
-!/Build/stylesCSS/.keep
+/dist/stylesCSS/*
+!/dist/stylesCSS/.keep
 
-/Build/stylesSass/*
-!/Build/stylesSass/.keep
+/dist/stylesSass/*
+!/dist/stylesSass/.keep
 
-/Build/scripts/*
-!/Build/scripts/.keep
+/dist/scripts/*
+!/dist/scripts/.keep

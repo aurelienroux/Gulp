@@ -30,7 +30,7 @@ gulp.task('scripts', function(){
     .pipe(concat('app.js'))
     .pipe(uglify())
   .pipe(sourceMap.write())
-  .pipe(gulp.dest('build/scripts/'))
+  .pipe(gulp.dest('dist/scripts/'))
   .pipe(browserSync.reload({
     stream: true
   }))
@@ -38,18 +38,18 @@ gulp.task('scripts', function(){
 
 // test in case of minification and name changing
 // gulp.task('minifyScripts', function(){
-//   gulp.src('build/scripts/app.js')
+//   gulp.src('dist/scripts/app.js')
 //   .pipe(sourceMap.init())
 //     .pipe(uglify())
 //     .pipe(rename('app.min.js'))
 //   .pipe(sourceMap.write())
-//   .pipe(gulp.dest('build/scripts/'))
+//   .pipe(gulp.dest('dist/scripts/'))
 // })
 
 //image minification -- only changes if necessary
 gulp.task('imagemin', function(){
   var img_src = 'src/images/**/*';
-  var img_dest = 'build/images';
+  var img_dest = 'dist/images';
   gulp.src(img_src)
   .pipe(changed(img_dest))
   .pipe(imagemin())
@@ -63,7 +63,7 @@ gulp.task('stylesCSS', function() {
   .pipe(concat('stylesCSS.css'))
   .pipe(autoprefix('last 2 versions'))
   .pipe(minifyCSS())
-  .pipe(gulp.dest('build/stylesCSS'))
+  .pipe(gulp.dest('dist/stylesCSS'))
   //browserSync reload application
   .pipe(browserSync.reload({
     stream: true
@@ -77,7 +77,7 @@ gulp.task('sass', function(){
     .pipe(plumber())
     .pipe(sass())
   .pipe(sourceMap.write())
-  .pipe(gulp.dest('build/stylesSass/'))
+  .pipe(gulp.dest('dist/stylesSass/'))
   //browserSync reload application
   .pipe(browserSync.reload({
     stream: true
@@ -88,7 +88,7 @@ gulp.task('sass', function(){
 gulp.task('browserSync', function() {
   browserSync.init({
     server: {
-      baseDir: 'build'
+      baseDir: 'dist'
     },
   })
 });
