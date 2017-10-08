@@ -60,7 +60,6 @@ gulp.task('imagemin', function(){
 // concat CSS styles, autoprefix and minification
 gulp.task('stylesCSS', function() {
   gulp.src(['src/stylesCSS/*.css'])
-  .pipe(plumber())
   .pipe(concat('stylesCSS.css'))
   .pipe(autoprefix('last 2 versions'))
   .pipe(minifyCSS())
@@ -106,7 +105,7 @@ gulp.task('watchFiles', function() {
 
 // Gulp defaut tasks
 gulp.task('default', ['imagemin', 'scripts', 'stylesCSS', 'sass', 'browserSync'], function(){
-  console.log("New action *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*")
+  console.log("Default gulp task *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*")
   gulp.watch('src/stylesCSS/*.css', ['stylesCSS']);
   gulp.watch('src/stylesSass/**/*.scss', ['sass']);
   gulp.watch('src/scripts/*.js', ['scripts']);
