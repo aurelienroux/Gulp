@@ -17,6 +17,7 @@ var sass = require('gulp-sass');
 //MISC
 var browserSync = require('browser-sync').create();
 var plumber = require('gulp-plumber');
+var del = require('del');
 
 //javascript optimization, source maps included
 var jsSource = [
@@ -92,6 +93,10 @@ gulp.task('browserSync', function() {
     },
   })
 });
+
+gulp.task('clean', function() {
+  del(['dist/images/*', 'dist/scripts/*', 'dist/stylesCSS/*', 'dist/stylesSass/*']);
+})
 
 // Gulp defaut tasks
 gulp.task('default', ['imagemin', 'stylesCSS', 'sass', 'scripts', 'browserSync'], function(){
