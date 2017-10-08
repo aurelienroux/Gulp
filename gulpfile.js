@@ -99,7 +99,7 @@ gulp.task('clean', function() {
 })
 
 // Gulp defaut tasks
-gulp.task('default', ['imagemin', 'stylesCSS', 'sass', 'scripts', 'browserSync'], function(){
+gulp.task('default', ['imagemin', 'scripts', 'stylesCSS', 'sass', 'browserSync'], function(){
   gulp.watch(
     ['src/stylesCSS/*.css', 'src/stylesSass/**/*.scss', 'src/scripts/*.js'],
     ['stylesCSS', 'sass', 'scripts']
