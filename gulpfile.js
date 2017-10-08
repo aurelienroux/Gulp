@@ -84,7 +84,7 @@ gulp.task('sass', function(){
   }))
 })
 
-//browserSync reload for CSS changes
+//browserSync reload for CSS/Sass changes
 gulp.task('browserSync', function() {
   browserSync.init({
     server: {
@@ -94,7 +94,7 @@ gulp.task('browserSync', function() {
 });
 
 // Gulp defaut tasks
-gulp.task('default', ['imagemin', 'browserSync', 'stylesCSS', 'scripts', 'sass'], function(){
+gulp.task('default', ['imagemin', 'stylesCSS', 'sass', 'scripts', 'browserSync'], function(){
   gulp.watch(
     ['src/stylesCSS/*.css', 'src/stylesSass/**/*.scss', 'src/scripts/*.js'],
     ['stylesCSS', 'sass', 'scripts']
