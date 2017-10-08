@@ -1,8 +1,9 @@
 # Gulp
 
 ## Summary
-basic gulp system to prepare production files from CSS, Sass and Javascript sources
-create package with ```$ npm init```
+basic gulp system to prepare production files from CSS, Sass and Javascript sources.
+
+Create package with `$ npm init`
 
 ## Structure
 all development files are located in /src folder.
@@ -15,7 +16,7 @@ a detail of every task
 gather all scripts in jsSource variable. files order can be changed to assure dependencies.
 create a sourceMap included in production file, concat all js files and uglify it.
 browserSync is included to serve on port 3000
-```
+```javascript
 //javascript optimization, source maps included
 var jsSource = [
   'src/scripts/log.js',
@@ -38,7 +39,7 @@ gulp.task('scripts', function(){
 ### minifyScripts
 for creating distinct files as app.js and app.min.js for production purpose.
 will source on an already concatened version of scripts file and create a minified version with a sourceMap included.
-```
+```javascript
 // test in case of minification and name changing
 gulp.task('minifyScripts', function(){
   gulp.src('dist/scripts/app.js')
@@ -53,7 +54,7 @@ gulp.task('minifyScripts', function(){
 ### imagemin
 will optimize all images in /img folder.
 will only run if changes are detected in folder
-```
+```javascript
 //image minification -- only changes if necessary
 gulp.task('imagemin', function(){
   var img_src = 'src/images/**/*';
@@ -69,7 +70,7 @@ gulp.task('imagemin', function(){
 will concat all CSS files in one.
 add browsers prefix for last 2 versions and minify production file
 browserSync is included to serve on port 3000
-```
+```javascript
 // concat CSS styles, autoprefix and minification
 gulp.task('stylesCSS', function() {
   gulp.src(['src/stylesCSS/*.css'])
@@ -86,7 +87,7 @@ gulp.task('stylesCSS', function() {
 
 ### Sass
 process all .scss files with a sourceMap. plumber task assure that task will never stop, even with syntax errors. browserSync is included to serve on port 3000
-```
+```javascript
 // compile Sass files
 gulp.task('sass', function(){
   gulp.src('src/stylesSass/app.scss')
@@ -104,7 +105,7 @@ gulp.task('sass', function(){
 
 ### browserSync
 config to serve /dist folder on port 3000 in browser.
-```
+```javascript
 //browserSync reload for CSS/Sass changes
 gulp.task('browserSync', function() {
   browserSync.init({
@@ -117,7 +118,7 @@ gulp.task('browserSync', function() {
 
 ### clean
 will delete all targeted files
-```
+```javascript
 gulp.task('clean', function() {
   del(['dist/images/*', 'dist/scripts/*', 'dist/stylesCSS/*', 'dist/stylesSass/*']);
 })
@@ -125,7 +126,7 @@ gulp.task('clean', function() {
 
 ### watchFiles
 simple watcher on styles and js files without live reload.
-```
+```javascript
 gulp.task('watchFiles', function() {
   gulp.watch('src/stylesCSS/*.css', ['stylesCSS']);
   gulp.watch('src/stylesSass/**/*.scss', ['sass']);
@@ -136,7 +137,7 @@ gulp.task('watchFiles', function() {
 ### default
 will trigger selected previous tasks.
 contains all watch tasks
-```
+```javascript
 // Gulp defaut tasks
 gulp.task('default', ['imagemin', 'scripts', 'stylesCSS', 'sass', 'browserSync'], function(){
   console.log("Default gulp task *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*")
