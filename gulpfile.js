@@ -72,7 +72,7 @@ gulp.task('stylesCSS', function() {
 
 // compile Sass files
 gulp.task('sass', function(){
-  gulp.src('src/stylesSass/app.scss')
+  gulp.src('src/stylesSass/app.sass')
   .pipe(sourceMap.init())
     .pipe(plumber())
     .pipe(sass())
@@ -99,7 +99,7 @@ gulp.task('clean', function() {
 
 gulp.task('watchFiles', function() {
   gulp.watch('src/stylesCSS/*.css', ['stylesCSS']);
-  gulp.watch('src/stylesSass/**/*.scss', ['sass']);
+  gulp.watch('src/stylesSass/**/*.sass', ['sass']);
   gulp.watch('src/scripts/*.js', ['scripts']);
 })
 
@@ -107,6 +107,6 @@ gulp.task('watchFiles', function() {
 gulp.task('default', ['imagemin', 'scripts', 'stylesCSS', 'sass', 'browserSync'], function(){
   console.log("Default gulp task *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*")
   gulp.watch('src/stylesCSS/*.css', ['stylesCSS']);
-  gulp.watch('src/stylesSass/**/*.scss', ['sass']);
+  gulp.watch('src/stylesSass/**/*.sass', ['sass']);
   gulp.watch('src/scripts/*.js', ['scripts']);
 });
