@@ -75,6 +75,7 @@ gulp.task('sass', function(){
   gulp.src('src/stylesSass/app.scss')
   .pipe(sourceMap.init())
     .pipe(plumber())
+    // .pipe(sass({outputStyle: 'compressed'}))
     .pipe(sass())
   .pipe(sourceMap.write())
   .pipe(gulp.dest('dist/stylesSass/'))
