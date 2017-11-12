@@ -7,6 +7,7 @@ var changed = require('gulp-changed');
 var imagemin = require('gulp-imagemin');
 //CSS & JS
 var autoprefix = require('gulp-autoprefixer');
+var babel = require('gulp-babel');
 var concat = require('gulp-concat');
 var minifyCSS = require('gulp-minify-css');
 var rename = require('gulp-rename');
@@ -28,6 +29,7 @@ var jsSource = [
 gulp.task('scripts', function(){
   gulp.src(jsSource)
   .pipe(sourceMap.init())
+    .pipe(babel())
     .pipe(concat('app.js'))
     .pipe(uglify())
   .pipe(sourceMap.write())
