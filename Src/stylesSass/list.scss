@@ -1,9 +1,9 @@
 li {
-  background-color: steelblue;
+  background-color: $color-tertiary;
 }
 
 h1 {
-  color: purple;
+  color: $color-secondary;
   border: 1px solid $color-secondary;
   padding: 20px;
 }
