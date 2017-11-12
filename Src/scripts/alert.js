@@ -1,7 +1,6 @@
-var title = document.getElementById('title')
+// test
+const evens = [ 0, 2, 4, 6 ];
+const odds = evens.map( i => i + 1 );
 
-title.addEventListener('click', function(){
-  console.log('clicked');
-})
-
-console.log('line 1000 in alert.js');
+console.log(evens);
+console.log(odds);
