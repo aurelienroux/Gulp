@@ -31,7 +31,7 @@ gulp.task('scripts', function(){
   .pipe(sourceMap.init())
     .pipe(babel())
     .pipe(concat('app.js'))
-    .pipe(uglify())
+    // .pipe(uglify())
   .pipe(sourceMap.write())
   .pipe(gulp.dest('dist/scripts/'))
   .pipe(browserSync.reload({
@@ -74,7 +74,7 @@ gulp.task('stylesCSS', function() {
 
 // compile Sass files
 gulp.task('sass', function(){
-  gulp.src('src/stylesSass/app.sass')
+  gulp.src('src/stylesSass/app.scss')
   .pipe(sourceMap.init())
     .pipe(plumber())
     // .pipe(sass({outputStyle: 'compressed'}))
@@ -102,7 +102,7 @@ gulp.task('clean', function() {
 
 gulp.task('watchFiles', function() {
   gulp.watch('src/stylesCSS/*.css', ['stylesCSS']);
-  gulp.watch('src/stylesSass/**/*.sass', ['sass']);
+  gulp.watch('src/stylesSass/**/*.scss', ['sass']);
   gulp.watch('src/scripts/*.js', ['scripts']);
 })
 
@@ -110,6 +110,6 @@ gulp.task('watchFiles', function() {
 gulp.task('default', ['imagemin', 'scripts', 'stylesCSS', 'sass', 'browserSync'], function(){
   console.log("Default gulp task *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*")
   gulp.watch('src/stylesCSS/*.css', ['stylesCSS']);
-  gulp.watch('src/stylesSass/**/*.sass', ['sass']);
+  gulp.watch('src/stylesSass/**/*.scss', ['sass']);
   gulp.watch('src/scripts/*.js', ['scripts']);
 });
