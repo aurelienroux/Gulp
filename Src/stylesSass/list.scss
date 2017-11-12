@@ -4,12 +4,12 @@ li {
 
 h1 {
   color: purple;
-  border: 1px solid salmon;
+  border: 1px solid $color-secondary;
   padding: 20px;
 }
 
 h2 {
   color: black;
-  background-color: yellow;
+  background-color: $color-tertiary;
   padding: 30px;
 }
