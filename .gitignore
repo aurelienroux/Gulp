@@ -11,3 +11,5 @@
 
 /dist/scripts/*
 !/dist/scripts/.keep
+
+/dist/*.html

@@ -1,25 +1,34 @@
 'use strict';
 
 //Dependencies required
-var gulp = require('gulp');
+const gulp = require('gulp');
+//HTML
+const htmlclean = require('gulp-htmlclean');
 //IMAGES
-var changed = require('gulp-changed');
-var imagemin = require('gulp-imagemin');
-var image = require('gulp-image');
+const changed = require('gulp-changed');
+const imagemin = require('gulp-imagemin');
+const image = require('gulp-image');
 //CSS & JS
-var autoprefix = require('gulp-autoprefixer');
-var babel = require('gulp-babel');
-var concat = require('gulp-concat');
-var minifyCSS = require('gulp-minify-css');
-var rename = require('gulp-rename');
-var sourceMap = require('gulp-sourcemaps');
-var uglify = require('gulp-uglify');
+const autoprefix = require('gulp-autoprefixer');
+const babel = require('gulp-babel');
+const concat = require('gulp-concat');
+const minifyCSS = require('gulp-minify-css');
+const rename = require('gulp-rename');
+const sourceMap = require('gulp-sourcemaps');
+const uglify = require('gulp-uglify');
 // Sass
-var sass = require('gulp-sass');
+const sass = require('gulp-sass');
 //MISC
-var browserSync = require('browser-sync').create();
-var plumber = require('gulp-plumber');
-var del = require('del');
+const browserSync = require('browser-sync').create();
+const plumber = require('gulp-plumber');
+const del = require('del');
+
+// html optimization
+gulp.task('html',['images'], function() {
+  return gulp.src('./src/*.html')
+    .pipe(htmlclean())
+    .pipe(gulp.dest('./dist/'));
+});
 
 //javascript optimization, source maps included
 var jsSource = [
@@ -101,7 +110,13 @@ gulp.task('browserSync', function() {
 });
 
 gulp.task('clean', function() {
-  return del(['dist/images/*', 'dist/scripts/*', 'dist/stylesCSS/*', 'dist/stylesSass/*']);
+  return del([
+    'dist/images/*',
+    'dist/scripts/*',
+    'dist/stylesCSS/*',
+    'dist/stylesSass/*',
+    'dist/*.html'
+  ]);
 })
 
 gulp.task('watchFiles', function() {
