@@ -27,7 +27,10 @@ const del = require('del');
 gulp.task('html',['images'], function() {
   return gulp.src('./src/*.html')
     .pipe(htmlclean())
-    .pipe(gulp.dest('./dist/'));
+    .pipe(gulp.dest('./dist/'))
+    .pipe(browserSync.reload({
+      stream: true
+    }))
 });
 
 //javascript optimization, source maps included
@@ -77,7 +80,7 @@ gulp.task('stylesCSS', function() {
   return gulp.src(['src/stylesCSS/*.css'])
   .pipe(concat('stylesCSS.css'))
   .pipe(autoprefix('last 2 versions'))
-  // .pipe(minifyCSS())
+  .pipe(minifyCSS())
   .pipe(gulp.dest('dist/stylesCSS'))
   //browserSync reload application
   .pipe(browserSync.reload({
@@ -105,7 +108,7 @@ gulp.task('sass', function(){
 gulp.task('browserSync', function() {
   return browserSync.init({
     server: {
-      baseDir: 'dist'
+      baseDir: 'dist/'
     },
   })
 });
@@ -124,12 +127,14 @@ gulp.task('watchFiles', function() {
   gulp.watch('src/stylesCSS/*.css', ['stylesCSS']);
   gulp.watch('src/stylesSass/**/*.scss', ['sass']);
   gulp.watch('src/scripts/*.js', ['scripts']);
+  gulp.watch('src/*.html', ['html']);
 })
 
 // Gulp defaut tasks
-gulp.task('default', ['images', 'scripts', 'stylesCSS', 'sass', 'browserSync'], function(){
+gulp.task('default', ['html', 'images', 'scripts', 'stylesCSS', 'sass', 'browserSync'], function(){
   console.log("Default gulp task *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*")
   gulp.watch('src/stylesCSS/*.css', ['stylesCSS']);
   gulp.watch('src/stylesSass/**/*.scss', ['sass']);
   gulp.watch('src/scripts/*.js', ['scripts']);
+  gulp.watch('src/*.html', ['html']);
 });
