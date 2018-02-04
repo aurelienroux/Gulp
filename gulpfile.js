@@ -77,7 +77,7 @@ gulp.task('stylesCSS', function() {
   return gulp.src(['src/stylesCSS/*.css'])
   .pipe(concat('stylesCSS.css'))
   .pipe(autoprefix('last 2 versions'))
-  .pipe(minifyCSS())
+  // .pipe(minifyCSS())
   .pipe(gulp.dest('dist/stylesCSS'))
   //browserSync reload application
   .pipe(browserSync.reload({
@@ -90,8 +90,9 @@ gulp.task('sass', function(){
   return gulp.src('src/stylesSass/app.scss')
   .pipe(sourceMap.init())
     .pipe(plumber())
-    // .pipe(sass({outputStyle: 'compressed'}))
-    .pipe(sass())
+    // .pipe(sass())
+    .pipe(sass({outputStyle: 'compressed'}))
+    .pipe(autoprefix('last 2 versions'))
   .pipe(sourceMap.write())
   .pipe(gulp.dest('dist/stylesSass/'))
   //browserSync reload application

@@ -1,13 +1,6 @@
 a {
+  display: flex;
   color: green;
   transition: 1s;
   border: 1px solid red;
-}
-
-p {
-  line-height: 1rem;
-}
-
-li {
-  list-style-type: circle;
 }
