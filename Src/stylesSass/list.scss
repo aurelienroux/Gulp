@@ -1,15 +1,15 @@
 li {
-  background-color: steelblue;
+  background-color: $color-tertiary;
 }
 
 h1 {
-  color: purple;
-  border: 1px solid salmon;
+  color: $color-secondary;
+  border: 1px solid $color-secondary;
   padding: 20px;
 }
 
 h2 {
   color: black;
-  background-color: yellow;
+  background-color: $color-tertiary;
   padding: 30px;
 }
