@@ -44,7 +44,7 @@ gulp.task('scripts', function(){
   .pipe(sourceMap.init())
     .pipe(babel())
     .pipe(concat('app.js'))
-    // .pipe(uglify())
+    .pipe(uglify())
   .pipe(sourceMap.write())
   .pipe(gulp.dest('dist/scripts/'))
   .pipe(browserSync.reload({
@@ -69,7 +69,7 @@ gulp.task('images', function(){
   return gulp.src(img_src)
   .pipe(changed(img_dest))
   //imagemin task
-  // .pipe(imagemin())
+//   .pipe(imagemin())
   //image task
   .pipe(image())
   .pipe(gulp.dest(img_dest));
@@ -79,7 +79,7 @@ gulp.task('images', function(){
 gulp.task('stylesCSS', function() {
   return gulp.src(['src/stylesCSS/*.css'])
   .pipe(concat('stylesCSS.css'))
-  .pipe(autoprefix('last 2 versions'))
+  .pipe(autoprefix({ grid: true }, 'last 2 versions'))
   .pipe(minifyCSS())
   .pipe(gulp.dest('dist/stylesCSS'))
   //browserSync reload application
