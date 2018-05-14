@@ -1,11 +1,11 @@
 img {
-  width: 75%;
-  box-shadow: 0 5px 20px #000;
+    width: 75%;
+    box-shadow: 0 5px 20px #000;
 }
 
 h1 {
-  color: lime;
-  border: 20px solid orange;
-  padding: 10px;
-  background-color: silver;
+    color: lime;
+    border: 20px solid orange;
+    padding: 10px;
+    background-color: silver;
 }
