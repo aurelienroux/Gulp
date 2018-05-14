@@ -65,13 +65,13 @@ gulp.task('checkScripts', function (cb) {
 });
 
 // test in case of minification and name changing
-// gulp.task('minifyScripts', function(){
-//   return gulp.src('dist/scripts/app.js')
-//   .pipe(sourceMap.init())
-//     .pipe(uglify())
-//     .pipe(rename('app.min.js'))
-//   .pipe(sourceMap.write())
-//   .pipe(gulp.dest('dist/scripts/'))
+// gulp.task('minifyScripts', function () {
+//     return gulp.src('dist/scripts/app.js')
+//         .pipe(sourceMap.init())
+//             .pipe(uglify())
+//             .pipe(rename('app.min.js'))
+//         .pipe(sourceMap.write())
+//         .pipe(gulp.dest('dist/scripts/'))
 // })
 
 //image minification -- only changes if necessary
