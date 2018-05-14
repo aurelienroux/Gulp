@@ -4,3 +4,15 @@ a {
   transition: 1s;
   border: 1px solid red;
 }
+
+div {
+    display: grid;
+}
+
+.item-a {
+    grid-column: 2;
+    grid-column-start: 2;
+    grid-column-end: five;
+    grid-row-start: row1-start;
+    grid-row-end: 3
+  }
