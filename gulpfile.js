@@ -2,6 +2,7 @@
 
 //Dependencies required
 const gulp = require('gulp');
+
 //HTML
 const htmlclean = require('gulp-htmlclean');
 
@@ -20,8 +21,10 @@ const rename = require('gulp-rename');
 const sourceMap = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify');
 const pump = require('pump');
+
 // Sass
 const sass = require('gulp-sass');
+
 //MISC
 const browserSync = require('browser-sync').create();
 const plumber = require('gulp-plumber');
@@ -45,6 +48,7 @@ var jsSource = [
 
 gulp.task('scripts', function () {
     return gulp.src(jsSource)
+        .pipe(plumber())
         .pipe(sourceMap.init())
         .pipe(babel())
         .pipe(concat('app.js'))
@@ -116,7 +120,6 @@ gulp.task('sass', function () {
     return gulp.src('src/stylesSass/app.scss')
         .pipe(sourceMap.init())
         .pipe(plumber())
-        // .pipe(sass())
         .pipe(sass({
             outputStyle: 'compressed'
         }))
