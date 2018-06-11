@@ -4,10 +4,13 @@
 const gulp = require('gulp');
 //HTML
 const htmlclean = require('gulp-htmlclean');
+
 //IMAGES
 const changed = require('gulp-changed');
 const imagemin = require('gulp-imagemin');
-const image = require('gulp-image');
+const imageminPng = require('imagemin-pngquant');
+const imageminJpeg = require('imagemin-jpeg-recompress');
+
 //CSS & JS
 const autoprefix = require('gulp-autoprefixer');
 const babel = require('gulp-babel');
@@ -80,10 +83,16 @@ gulp.task('images', function () {
     var img_dest = 'dist/images';
     return gulp.src(img_src)
         .pipe(changed(img_dest))
-        //imagemin task
-        //   .pipe(imagemin())
-        //image task
-        .pipe(image())
+        .pipe(imagemin(
+            [
+                imagemin.gifsicle(),
+                imagemin.jpegtran(),
+                imagemin.optipng(),
+                imagemin.svgo(),
+                imageminPng(),
+                imageminJpeg()
+            ]
+        ))
         .pipe(gulp.dest(img_dest));
 });
 
