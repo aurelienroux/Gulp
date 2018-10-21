@@ -32,15 +32,7 @@
     },
     'images': {
       'src': 'src/images/**/*',
-      'dest': 'dist/images',
-      'plugins': [
-       ' imagemin.gifsicle()',
-        'imagemin.jpegtran()',
-        'imagemin.optipng()',
-       ' imagemin.svgo()',
-       ' imageminPng()',
-      '  imageminJpeg()'
-      ]
+      'dest': 'dist/images'
     },
     'html': {
       'src': './src/*.html',

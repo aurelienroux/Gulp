@@ -8,6 +8,15 @@ const imageminPng = require('imagemin-pngquant');
 gulp.task('images', function () {
   return gulp.src(config.images.src)
     .pipe(changed(config.images.dest))
-    .pipe(imagemin(config.images.plugins))
+    .pipe(imagemin(
+      [
+        imagemin.gifsicle(),
+        imagemin.jpegtran(),
+        imagemin.optipng(),
+        imagemin.svgo(),
+        imageminPng(),
+        imageminJpeg()
+      ]
+    ))
     .pipe(gulp.dest(config.images.dest));
 });
