@@ -3,8 +3,8 @@
 /dist/images/*
 !/dist/images/.keep
 
-/dist/styles/*
-!/dist/styles/.keep
+dist/style/*
+!/dist/style/.keep
 
 /dist/scripts/*
 !/dist/scripts/.keep

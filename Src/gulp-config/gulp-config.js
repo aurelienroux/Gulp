@@ -5,7 +5,7 @@
     'styles': {
       'src': 'src/styles/app.scss',
       'files': 'src/styles/**/*.scss',
-      'dest': 'dist/styles/',
+      'dest': 'dist/style/',
       'sass': {
         outputStyle: 'compressed'
       },
@@ -26,7 +26,7 @@
       'paths': [
         'dist/images/*',
         'dist/scripts/*',
-        'dist/styles/*',
+        'dist/style/*',
         'dist/*.html'
       ]
     },
