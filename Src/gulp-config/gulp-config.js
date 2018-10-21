@@ -29,6 +29,18 @@
         'dist/stylesSass/*',
         'dist/*.html'
       ]
+    },
+    'images': {
+      'src': 'src/images/**/*',
+      'dest': 'dist/images',
+      'plugins': [
+       ' imagemin.gifsicle()',
+        'imagemin.jpegtran()',
+        'imagemin.optipng()',
+       ' imagemin.svgo()',
+       ' imageminPng()',
+      '  imageminJpeg()'
+      ]
     }
   }
 })();
