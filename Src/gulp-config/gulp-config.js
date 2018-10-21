@@ -4,6 +4,7 @@
   module.exports = {
     'styles': {
       'src': 'src/styles/app.scss',
+      'files': 'src/styles/**/*.scss',
       'dest': 'dist/styles/',
       'sass': {
         outputStyle: 'compressed'
