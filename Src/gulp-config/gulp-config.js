@@ -41,6 +41,10 @@
        ' imageminPng()',
       '  imageminJpeg()'
       ]
+    },
+    'html': {
+      'src': './src/*.html',
+      'dest': './dist/'
     }
   }
 })();

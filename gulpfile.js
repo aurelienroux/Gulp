@@ -32,16 +32,6 @@ const browserSync = require('browser-sync').create();
 const plumber = require('gulp-plumber');
 const del = require('del');
 
-// html optimization
-gulp.task('html', ['images'], function () {
-    return gulp.src('./src/*.html')
-        .pipe(htmlclean())
-        .pipe(gulp.dest('./dist/'))
-        .pipe(browserSync.reload({
-            stream: true
-        }))
-});
-
 // test in case of minification and name changing
 // gulp.task('minifyScripts', function () {
 //     return gulp.src('dist/scripts/app.js')
