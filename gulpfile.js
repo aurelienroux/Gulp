@@ -2,6 +2,8 @@
 
 //Dependencies required
 const gulp = require('gulp');
+const requireDir = require('require-dir');
+requireDir('./Src/gulp-config');
 
 //HTML
 const htmlclean = require('gulp-htmlclean');
@@ -39,26 +41,6 @@ gulp.task('html', ['images'], function () {
             stream: true
         }))
 });
-
-//javascript optimization, source maps included
-var jsSource = [
-    'src/scripts/log.js',
-    'src/scripts/alert.js'
-];
-
-gulp.task('scripts', function () {
-    return gulp.src(jsSource)
-        .pipe(plumber())
-        .pipe(sourceMap.init())
-        .pipe(babel())
-        .pipe(concat('app.js'))
-        .pipe(uglify())
-        .pipe(sourceMap.write())
-        .pipe(gulp.dest('dist/scripts/'))
-        .pipe(browserSync.reload({
-            stream: true
-        }))
-})
 
 // check if js tasks has errors
 gulp.task('checkScripts', function (cb) {
@@ -109,25 +91,6 @@ gulp.task('stylesCSS', function () {
         }, 'last 2 versions'))
         .pipe(minifyCSS())
         .pipe(gulp.dest('dist/stylesCSS'))
-        //browserSync reload application
-        .pipe(browserSync.reload({
-            stream: true
-        }))
-})
-
-// compile Sass files
-gulp.task('sass', function () {
-    return gulp.src('src/stylesSass/app.scss')
-        .pipe(sourceMap.init())
-        .pipe(plumber())
-        .pipe(sass({
-            outputStyle: 'compressed'
-        }))
-        .pipe(autoprefix({
-            grid: true
-        }, 'last 2 versions'))
-        .pipe(sourceMap.write())
-        .pipe(gulp.dest('dist/stylesSass/'))
         //browserSync reload application
         .pipe(browserSync.reload({
             stream: true
