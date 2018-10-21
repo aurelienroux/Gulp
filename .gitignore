@@ -3,11 +3,8 @@
 /dist/images/*
 !/dist/images/.keep
 
-/dist/stylesCSS/*
-!/dist/stylesCSS/.keep
-
-/dist/stylesSass/*
-!/dist/stylesSass/.keep
+/dist/styles/*
+!/dist/styles/.keep
 
 /dist/scripts/*
 !/dist/scripts/.keep
