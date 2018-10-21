@@ -20,6 +20,15 @@
       ],
       'fileName': 'app.js',
       'dest': 'dist/scripts/'
+    },
+    'clean': {
+      'paths': [
+        'dist/images/*',
+        'dist/scripts/*',
+        'dist/stylesCSS/*',
+        'dist/stylesSass/*',
+        'dist/*.html'
+      ]
     }
   }
 })();

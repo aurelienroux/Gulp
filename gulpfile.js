@@ -106,16 +106,6 @@ gulp.task('browserSync', function () {
     })
 });
 
-gulp.task('clean', function () {
-    return del([
-        'dist/images/*',
-        'dist/scripts/*',
-        'dist/stylesCSS/*',
-        'dist/stylesSass/*',
-        'dist/*.html'
-    ]);
-})
-
 gulp.task('watchFiles', function () {
     gulp.watch('src/stylesCSS/*.css', ['stylesCSS']);
     gulp.watch('src/stylesSass/**/*.scss', ['sass']);
