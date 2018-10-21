@@ -2,9 +2,9 @@
   'use strict';
 
   module.exports = {
-    'style': {
-      'src': 'src/StylesSass/app.scss',
-      'dest': 'dist/stylesSass/',
+    'styles': {
+      'src': 'src/styles/app.scss',
+      'dest': 'dist/styles/',
       'sass': {
         outputStyle: 'compressed'
       },
@@ -25,8 +25,7 @@
       'paths': [
         'dist/images/*',
         'dist/scripts/*',
-        'dist/stylesCSS/*',
-        'dist/stylesSass/*',
+        'dist/styles/*',
         'dist/*.html'
       ]
     },
