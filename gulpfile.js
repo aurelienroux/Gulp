@@ -42,17 +42,6 @@ gulp.task('html', ['images'], function () {
         }))
 });
 
-// check if js tasks has errors
-gulp.task('checkScripts', function (cb) {
-    pump([
-            gulp.src('scripts/*.js'),
-            uglify(),
-            gulp.dest('dist/pump')
-        ],
-        cb
-    );
-});
-
 // test in case of minification and name changing
 // gulp.task('minifyScripts', function () {
 //     return gulp.src('dist/scripts/app.js')
@@ -62,25 +51,6 @@ gulp.task('checkScripts', function (cb) {
 //         .pipe(sourceMap.write())
 //         .pipe(gulp.dest('dist/scripts/'))
 // })
-
-//image minification -- only changes if necessary
-gulp.task('images', function () {
-    var img_src = 'src/images/**/*';
-    var img_dest = 'dist/images';
-    return gulp.src(img_src)
-        .pipe(changed(img_dest))
-        .pipe(imagemin(
-            [
-                imagemin.gifsicle(),
-                imagemin.jpegtran(),
-                imagemin.optipng(),
-                imagemin.svgo(),
-                imageminPng(),
-                imageminJpeg()
-            ]
-        ))
-        .pipe(gulp.dest(img_dest));
-});
 
 // concat CSS styles, autoprefix and minification
 gulp.task('stylesCSS', function () {
